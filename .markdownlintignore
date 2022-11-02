@@ -1,0 +1,5 @@
+.changeset/*.md
+**/CHANGELOG.md
+licenses
+CLA.md
+!**/README.md

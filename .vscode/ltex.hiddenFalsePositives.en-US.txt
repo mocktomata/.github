@@ -1,0 +1,3 @@
+{"rule":"ALL_OF_THE","sentence":"^\\QLicensor hereby grants to each recipient of the Software (\"you\") a non-exclusive, non-transferable, royalty-free and fully-paid-up license, under all of the Licensor's copyright and patent rights, to use, copy, distribute, prepare derivative works of, publicly perform and display the Software, subject to the Use Limitation and the conditions set forth below.\\E$"}
+
+{"rule":"IN_A_X_MANNER","sentence":"^\\QRedistribution in source code or other forms must include a copy of this license document to be provided in a reasonable manner.\\E$"}
