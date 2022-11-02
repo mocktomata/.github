@@ -3,12 +3,12 @@
 Thank you for your interest in contributing to the projects (“Projects”) in [mocktomata].
 
 We need you to sign a Contributor License Agreement ("CLA") because the project is licensed (typically either [Fair Software License] or [MIT]).
-A CLA enables Unison Ventures LLC ("us") to copyleft the same freedom provided by the license.
+A CLA enables Unison Ventures LLC ("Us") to copyleft the same freedom provided by the license.
 
 Here are some key terms in the "CLA":
 
-- Grant of Copyright License. You give "us" permission to use your copyrighted work in our products.
-- Grant of Patent License. If your contributed work uses a patent, you give "us" a license to use that patent in our products.\
+- Grant of Copyright License. You give Us permission to use your copyrighted work in our products.
+- Grant of Patent License. If your contributed work uses a patent, you give Us a license to use that patent in our products.\
   You also agree that you have permission to grant this license.
 - No Warranty or Support Obligations. By making a contribution, you are not obligating yourself to provide support for the contribution,\
   and you are not taking on any warranty obligations or providing any assurances about how it will perform.
