@@ -152,6 +152,7 @@ the mocktomata projects ("Project" or "Projects").
   You agree to notify Us of any facts or circumstances of which you become
   aware that would make these representations inaccurate in any respect.
 
-[mocktomata]: https://github.com/mocktomata
-[Fair Software License]: ./licenses/FAIR_SOFTWARE_LICENSE.md
 [CLA]: #the-actual-contributor-license-agreement
+[Fair Software License]: ./licenses/FAIR_SOFTWARE_LICENSE.md
+[MIT]: ./licenses/MIT.md
+[mocktomata]: https://github.com/mocktomata
