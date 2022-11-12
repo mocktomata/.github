@@ -1,9 +1,13 @@
 name: docs-repo
 on:
   workflow_call:
-
+    inputs:
+      publish_dir:
+        type: string
+        required: false
+        default: ./docs
 jobs:
-  npm:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,4 +27,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ${{ inputs.publish_dir }}
