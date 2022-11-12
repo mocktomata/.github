@@ -1,6 +1,11 @@
 name: pnpm-release-changeset
 on:
   workflow_call:
+    inputs:
+      node-version:
+        type: string
+        required: false
+        default: "[14, 16, 18]"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
