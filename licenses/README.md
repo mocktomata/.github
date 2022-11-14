@@ -18,7 +18,7 @@ so we can quickly compare them.
 
 - MIT: [MIT_ref1], [MIT_ref2]
 - [Fair_Source_License]
-
+- [Business Source License](https://mariadb.com/bsl-faq-adopting/)
 
 ## References
 
