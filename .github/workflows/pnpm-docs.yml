@@ -1,6 +1,11 @@
 name: build-docs
 on:
   workflow_call:
+    inputs:
+      pnpm-version:
+        type: string
+        required: false
+        default: 7.16.1
 
 jobs:
   npm:
@@ -11,7 +16,7 @@ jobs:
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
         with:
-          version: 7.14.1
+          version: ${{ inputs.pnpm-version }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
