@@ -1,8 +1,14 @@
 {
+  "cSpell.words": [
+    "mxschmitt",
+    "npmjs",
+    "npmrc",
+    "pnpm"
+  ],
   "editor.minimap.maxColumn": 120,
-  "evenBetterToml.formatter.columnWidth": 120,
-  "evenBetterToml.formatter.allowedBlankLines": 1,
   "editor.rulers": [
     80
-  ]
+  ],
+  "evenBetterToml.formatter.allowedBlankLines": 1,
+  "evenBetterToml.formatter.columnWidth": 120
 }

@@ -5,7 +5,11 @@ on:
       pnpm-version:
         type: string
         required: false
-        default: 7.16.1
+        default: 7.17.1
+      publish-dir:
+        type: string
+        required: false
+        default: ./docs
 
 jobs:
   npm:
@@ -29,4 +33,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ${{ inputs.publish_dir }}
