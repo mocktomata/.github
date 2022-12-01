@@ -6,7 +6,7 @@ on:
         type: string
         required: false
         default: 7.17.1
-      publish-dir:
+      publish_dir:
         type: string
         required: false
         default: ./docs
