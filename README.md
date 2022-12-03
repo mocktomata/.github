@@ -6,7 +6,6 @@
 
 Use the workflow templates to create workflows for each repository.
 
-
 References:
 
 - <https://github.blog/changelog/2020-04-15-github-actions-new-workflow-features/>
