@@ -1,11 +1,18 @@
 name: yarn-verify-cross-platform
 on:
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
   workflow_call:
     inputs:
       pnpm-version:
         type: string
         required: false
-        default: 7.16.1
+        default: 7.27.0
 jobs:
   verify:
     runs-on: ${{ matrix.os }}
@@ -23,6 +30,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
 
       - name: Install Dependencies
         run: pnpm install
