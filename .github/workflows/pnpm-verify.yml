@@ -32,11 +32,19 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Verify
+      - name: Verify (Linux)
+        run: xvfb-run -a pnpm verify
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+      - name: Verify (Windows/Mac)
         run: pnpm verify
+        if: ${{ matrix.os != 'ubuntu-latest' }}
 
       - name: codecov
         if: matrix.os == 'ubuntu-latest' && matrix.node-version == 18

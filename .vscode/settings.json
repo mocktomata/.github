@@ -3,7 +3,8 @@
     "mxschmitt",
     "npmjs",
     "npmrc",
-    "pnpm"
+    "pnpm",
+    "xvfb"
   ],
   "editor.minimap.maxColumn": 120,
   "editor.rulers": [
