@@ -12,7 +12,7 @@ on:
       node-version:
         type: string
         required: false
-        default: "[14, 16, 18]"
+        default: '["lts/-1", "lts/*"]'
       pnpm-version:
         type: string
         required: false
