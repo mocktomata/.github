@@ -24,9 +24,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.CI_GITHUB_TOKEN }}
-      - uses: pnpm/action-setup@v2
-        with:
-          version: ${{ inputs.pnpm-version }}
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 16
