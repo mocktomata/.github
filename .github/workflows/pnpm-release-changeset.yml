@@ -12,12 +12,25 @@ on:
       pnpm-version:
         type: string
         required: false
+    outputs:
+      published:
+        description: 'Whether the release was published'
+        value: ${{ jobs.release.outputs.published }}
+
+# `id-token: write` mints the OIDC token npm exchanges for a short-lived
+# publish credential. This is what replaces the long-lived NPM_TOKEN, and it
+# is also what makes npm attach provenance to each published tarball.
+permissions:
+  id-token: write
+  contents: read
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -29,6 +42,12 @@ jobs:
           node-version: lts/*
           cache: pnpm
 
+      # Trusted publishing requires npm 11.5.1+. Node LTS may ship an older npm.
+      - name: Ensure npm supports trusted publishing
+        run: |
+          npm install -g npm@latest
+          npm --version
+
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
@@ -36,12 +55,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
       - run: pnpm build
-      - name: update .npmrc with token
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
