@@ -56,12 +56,18 @@ jobs:
         run: pnpm install
       - run: pnpm build
 
+      # changesets/action v2 only runs against @changesets/cli v3 (it refuses v2), so
+      # every caller needs cli v3.
+      #
+      # v2 renamed the inputs (version -> version-script, publish -> publish-script,
+      # commit -> commit-message) and dropped the GITHUB_TOKEN *env var* in favour of the
+      # github-token *input*. The old names are ignored with a warning, then the action
+      # fails with "The following inputs have been renamed".
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v2.1.2
         with:
-          commit: 'chore: version packages'
-          version: pnpm run version
-          publish: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
+          commit-message: 'chore: version packages'
+          version-script: pnpm run version
+          publish-script: pnpm run release
+          github-token: ${{ secrets.CI_GITHUB_TOKEN }}
